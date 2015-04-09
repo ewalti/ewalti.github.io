@@ -5,7 +5,7 @@ body {
 object {
   display: block;
   width: 50%;
-  margin: 100px auto 50px auto;
+  margin: 100px auto 15px auto;
 }
 a {
   color: #fff;
@@ -16,6 +16,9 @@ a:hover {
 }
 i {
   margin-right: 10px;
+}
+h1 {
+  color: #fff;
 }
 h2 {
   border-bottom: 1px solid #fff;
