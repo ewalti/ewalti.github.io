@@ -17,11 +17,9 @@ a:hover {
 i {
   margin-right: 10px;
 }
-h1 {
-  color: #fff;
-}
+h1,
 h2 {
-  border-bottom: 1px solid #fff;
+  color: #fff;
 }
 p {
   margin-bottom: 50px;
