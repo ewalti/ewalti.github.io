@@ -1,0 +1,35 @@
+body {
+  background-color: #01a9a3;
+  color: #fff;
+}
+object {
+  display: block;
+  width: 50%;
+  margin: 100px auto 50px auto;
+}
+a {
+  color: #fff;
+}
+a:hover {
+  -webkit-transition: all 250ms ease;
+          transition: all 250ms ease;
+}
+i {
+  margin-right: 10px;
+}
+h2 {
+  border-bottom: 1px solid #fff;
+}
+p {
+  margin-bottom: 50px;
+}
+.row {
+  text-align: center;
+}
+.social {
+  list-style-type: none;
+}
+.social li {
+  display: inline-block;
+  margin-right: 20px;
+}
