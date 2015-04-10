@@ -376,6 +376,10 @@ define('ember-material-ui-datetime-picker/router', ['exports', 'ember', 'ember-m
     location: config['default'].locationType
   });
 
+  Router.reopen({
+    rootURL: '/ember/addons/ember-material-ui-datetime-picker/'
+  });
+
   exports['default'] = Router.map(function () {});
 
 });
