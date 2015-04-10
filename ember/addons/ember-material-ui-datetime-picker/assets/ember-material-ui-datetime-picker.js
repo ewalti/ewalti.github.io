@@ -92,11 +92,11 @@ define('ember-material-ui-datetime-picker/components/ember-material-ui-input', [
 
   exports['default'] = Ember['default'].Component.extend({
 
-    tagName: 'input',
+    tagName: 'div',
     classNames: ['ember-material-ui-input'],
 
     inputValue: Ember['default'].observer('value', function () {
-      this.$().val(get(this, 'value'));
+      this.$().find('span').text(get(this, 'value'));
     }),
 
     click: function click() {
@@ -794,15 +794,12 @@ define('ember-material-ui-datetime-picker/templates/components/ember-material-ui
       hasRendered: false,
       build: function build(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
+        var el1 = dom.createElement("span");
         dom.appendChild(el0, el1);
         return el0;
       },
       render: function render(context, env, contextualElement) {
         var dom = env.dom;
-        var hooks = env.hooks, content = hooks.content;
         dom.detectNamespace(contextualElement);
         var fragment;
         if (env.useFragmentCache && dom.canClone) {
@@ -820,9 +817,6 @@ define('ember-material-ui-datetime-picker/templates/components/ember-material-ui
         } else {
           fragment = this.build(dom);
         }
-        var morph0 = dom.createMorphAt(fragment,0,0,contextualElement);
-        dom.insertBoundary(fragment, 0);
-        content(env, morph0, context, "yield");
         return fragment;
       }
     };
