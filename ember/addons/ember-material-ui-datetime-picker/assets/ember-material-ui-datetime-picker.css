@@ -193,6 +193,30 @@
         background-color: #0097a7;
         color: #fff; }
 
+@media screen and (max-width: 667px) {
+  .ember-material-ui-datetime-picker .header {
+    line-height: 25px; }
+  .ember-material-ui-datetime-picker .display-date {
+    padding: 5px 0; }
+  .ember-material-ui-datetime-picker .display-date .month {
+    font-size: 16px;
+    line-height: 16px;
+    height: 16px; }
+  .ember-material-ui-datetime-picker .display-date .day {
+    margin: 0;
+    font-size: 30px;
+    line-height: 30px; }
+  .ember-material-ui-datetime-picker .display-date .day {
+    height: 30px; }
+  .ember-material-ui-datetime-picker .toolbar {
+    height: 30px; }
+  .ember-material-ui-datetime-picker .day-button {
+    line-height: 28px; }
+  .ember-material-ui-datetime-picker .day-button .selected {
+    width: 30px;
+    height: 30px;
+    margin-left: -15px; } }
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -351,7 +375,7 @@ code {
   padding: 20px; }
 
 .note {
-  margin-bottom: 40px; }
+  margin-bottom: 400px; }
 
 .notes {
   font-style: italic;

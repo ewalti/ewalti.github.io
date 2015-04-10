@@ -117,6 +117,44 @@ define('ember-material-ui-datetime-picker/components/ember-wormhole', ['exports'
 	exports['default'] = Component['default'];
 
 });
+define('ember-material-ui-datetime-picker/components/worm-hole-modal', ['exports', 'ember'], function (exports, Ember) {
+
+  'use strict';
+
+  exports['default'] = Ember['default'].Component.extend({
+
+    tagName: 'div',
+    classNames: ['worm-hole-modal', 'animated', 'fadeIn'],
+
+    didInsertElement: function didInsertElement() {} });
+
+  // console.log('render modal weee');
+
+  // var w = Ember.$(window);
+  // var d = Ember.$(document);
+
+  // w.on('resize.derp', function(){
+  //   console.log(d.height(), d.width())
+  //   Ember.run.throttle(this, function(){
+  //     this.$().css({height: w.height(), width: w.width()});
+  //   }.bind(this), 250);
+  // }.bind(this));
+
+  // this.$().css({height: w.height(), width: w.width()});
+
+  // click: function(event) {
+  //   if(event.target === this.$()[0]) {
+  //     this.sendAction('cancelAction')
+  //   }
+  // },
+
+  // willDestroyElement: function() {
+
+  //   Ember.$(window).off('derp');
+
+  // }
+
+});
 define('ember-material-ui-datetime-picker/controllers/application', ['exports', 'ember', 'ember-material-ui-datetime-picker/mixins/publish-date-range'], function (exports, Ember, PublishDateRange) {
 
 	'use strict';
@@ -420,6 +458,56 @@ define('ember-material-ui-datetime-picker/templates/application', ['exports'], f
   exports['default'] = Ember.HTMLBars.template((function() {
     var child0 = (function() {
       var child0 = (function() {
+        var child0 = (function() {
+          return {
+            isHTMLBars: true,
+            revision: "Ember@1.11.1",
+            blockParams: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            build: function build(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("          ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1,"class","worm-hole-card animated slideInDown");
+              var el2 = dom.createTextNode("\n            ");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createComment("");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createTextNode("\n          ");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            render: function render(context, env, contextualElement) {
+              var dom = env.dom;
+              var hooks = env.hooks, inline = hooks.inline;
+              dom.detectNamespace(contextualElement);
+              var fragment;
+              if (env.useFragmentCache && dom.canClone) {
+                if (this.cachedFragment === null) {
+                  fragment = this.build(dom);
+                  if (this.hasRendered) {
+                    this.cachedFragment = fragment;
+                  } else {
+                    this.hasRendered = true;
+                  }
+                }
+                if (this.cachedFragment) {
+                  fragment = dom.cloneNode(this.cachedFragment, true);
+                }
+              } else {
+                fragment = this.build(dom);
+              }
+              var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),1,1);
+              inline(env, morph0, context, "ember-material-ui-datetime-picker", [], {"confirmAction": "setPublishFrom", "cancelAction": "hideDateModals", "confirmLabel": "Ok", "declineLabel": "Cancel", "showTime": true});
+              return fragment;
+            }
+          };
+        }());
         return {
           isHTMLBars: true,
           revision: "Ember@1.11.1",
@@ -428,31 +516,13 @@ define('ember-material-ui-datetime-picker/templates/application', ['exports'], f
           hasRendered: false,
           build: function build(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("        ");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createElement("div");
-            dom.setAttribute(el1,"class","worm-hole-modal animated fadeIn");
-            var el2 = dom.createTextNode("\n          ");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("div");
-            dom.setAttribute(el2,"class","worm-hole-card animated slideInDown");
-            var el3 = dom.createTextNode("\n            ");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createTextNode("\n          ");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n        ");
-            dom.appendChild(el1, el2);
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
+            var el1 = dom.createComment("");
             dom.appendChild(el0, el1);
             return el0;
           },
           render: function render(context, env, contextualElement) {
             var dom = env.dom;
-            var hooks = env.hooks, inline = hooks.inline;
+            var hooks = env.hooks, block = hooks.block;
             dom.detectNamespace(contextualElement);
             var fragment;
             if (env.useFragmentCache && dom.canClone) {
@@ -470,8 +540,10 @@ define('ember-material-ui-datetime-picker/templates/application', ['exports'], f
             } else {
               fragment = this.build(dom);
             }
-            var morph0 = dom.createMorphAt(dom.childAt(fragment, [1, 1]),1,1);
-            inline(env, morph0, context, "ember-material-ui-datetime-picker", [], {"confirmAction": "setPublishFrom", "cancelAction": "hideDateModals", "confirmLabel": "Ok", "declineLabel": "Cancel", "showTime": true});
+            var morph0 = dom.createMorphAt(fragment,0,0,contextualElement);
+            dom.insertBoundary(fragment, null);
+            dom.insertBoundary(fragment, 0);
+            block(env, morph0, context, "worm-hole-modal", [], {"cancelAction": "hideDateModals"}, child0, null);
             return fragment;
           }
         };
@@ -842,6 +914,54 @@ define('ember-material-ui-datetime-picker/templates/components/ember-material-ui
   }()));
 
 });
+define('ember-material-ui-datetime-picker/templates/components/worm-hole-modal', ['exports'], function (exports) {
+
+  'use strict';
+
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      revision: "Ember@1.11.1",
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var morph0 = dom.createMorphAt(fragment,0,0,contextualElement);
+        dom.insertBoundary(fragment, 0);
+        content(env, morph0, context, "yield");
+        return fragment;
+      }
+    };
+  }()));
+
+});
 define('ember-material-ui-datetime-picker/tests/app.jshint', function () {
 
   'use strict';
@@ -859,6 +979,16 @@ define('ember-material-ui-datetime-picker/tests/components/ember-material-ui-inp
   module('JSHint - components');
   test('components/ember-material-ui-input.js should pass jshint', function() { 
     ok(true, 'components/ember-material-ui-input.js should pass jshint.'); 
+  });
+
+});
+define('ember-material-ui-datetime-picker/tests/components/worm-hole-modal.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - components');
+  test('components/worm-hole-modal.js should pass jshint', function() { 
+    ok(true, 'components/worm-hole-modal.js should pass jshint.'); 
   });
 
 });
@@ -1015,6 +1145,38 @@ define('ember-material-ui-datetime-picker/tests/unit/components/ember-material-u
   module('JSHint - unit/components');
   test('unit/components/ember-material-ui-input-test.js should pass jshint', function() { 
     ok(true, 'unit/components/ember-material-ui-input-test.js should pass jshint.'); 
+  });
+
+});
+define('ember-material-ui-datetime-picker/tests/unit/components/worm-hole-modal-test', ['ember-qunit'], function (ember_qunit) {
+
+  'use strict';
+
+  ember_qunit.moduleForComponent('worm-hole-modal', {});
+
+  ember_qunit.test('it renders', function (assert) {
+    assert.expect(2);
+
+    // Creates the component instance
+    var component = this.subject();
+    assert.equal(component._state, 'preRender');
+
+    // Renders the component to the page
+    this.render();
+    assert.equal(component._state, 'inDOM');
+  });
+
+  // Specify the other units that are required for this test
+  // needs: ['component:foo', 'helper:bar']
+
+});
+define('ember-material-ui-datetime-picker/tests/unit/components/worm-hole-modal-test.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - unit/components');
+  test('unit/components/worm-hole-modal-test.js should pass jshint', function() { 
+    ok(true, 'unit/components/worm-hole-modal-test.js should pass jshint.'); 
   });
 
 });
