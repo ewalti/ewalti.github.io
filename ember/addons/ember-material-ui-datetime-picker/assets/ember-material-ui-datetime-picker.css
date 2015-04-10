@@ -195,19 +195,28 @@
 
 @media screen and (max-width: 667px) {
   .ember-material-ui-datetime-picker .header {
-    line-height: 25px; }
+    display: none; }
   .ember-material-ui-datetime-picker .display-date {
     padding: 5px 0; }
   .ember-material-ui-datetime-picker .display-date .month {
-    font-size: 16px;
-    line-height: 16px;
-    height: 16px; }
+    font-size: 20px;
+    line-height: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle; }
+  .ember-material-ui-datetime-picker .display-date .year {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 20px;
+    height: 20px; }
   .ember-material-ui-datetime-picker .display-date .day {
     margin: 0;
-    font-size: 30px;
-    line-height: 30px; }
-  .ember-material-ui-datetime-picker .display-date .day {
-    height: 30px; }
+    font-size: 20px;
+    line-height: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle; }
   .ember-material-ui-datetime-picker .toolbar {
     height: 30px; }
   .ember-material-ui-datetime-picker .day-button {
