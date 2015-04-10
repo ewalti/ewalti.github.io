@@ -194,37 +194,57 @@
         color: #fff; }
 
 @media screen and (max-width: 667px) {
-  .ember-material-ui-datetime-picker .header {
+  .is-portrait .ember-material-ui-datetime-picker .header {
     display: none; }
-  .ember-material-ui-datetime-picker .display-date {
+  .is-portrait .ember-material-ui-datetime-picker .display-date {
     padding: 5px 0; }
-  .ember-material-ui-datetime-picker .display-date .month {
+  .is-portrait .ember-material-ui-datetime-picker .display-date .month {
     font-size: 20px;
     line-height: 20px;
     height: 20px;
     display: inline-block;
     vertical-align: middle; }
-  .ember-material-ui-datetime-picker .display-date .year {
+  .is-portrait .ember-material-ui-datetime-picker .display-date .year {
     display: inline-block;
     vertical-align: middle;
     font-size: 20px;
     line-height: 20px;
     height: 20px; }
-  .ember-material-ui-datetime-picker .display-date .day {
+  .is-portrait .ember-material-ui-datetime-picker .display-date .day {
     margin: 0;
     font-size: 20px;
     line-height: 20px;
     height: 20px;
     display: inline-block;
     vertical-align: middle; }
-  .ember-material-ui-datetime-picker .toolbar {
+  .is-portrait .ember-material-ui-datetime-picker .toolbar {
     height: 30px; }
-  .ember-material-ui-datetime-picker .day-button {
+  .is-portrait .ember-material-ui-datetime-picker .day-button {
     line-height: 28px; }
-  .ember-material-ui-datetime-picker .day-button .selected {
+  .is-portrait .ember-material-ui-datetime-picker .day-button .selected {
     width: 30px;
     height: 30px;
-    margin-left: -15px; } }
+    margin-left: -15px; }
+  .is-landscape .ember-material-ui-datetime-picker {
+    width: 450px;
+    position: relative; }
+    .is-landscape .ember-material-ui-datetime-picker .header {
+      display: block; }
+    .is-landscape .ember-material-ui-datetime-picker .calendar {
+      height: 100%;
+      overflow: hidden;
+      width: auto; }
+    .is-landscape .ember-material-ui-datetime-picker .date-display {
+      float: left;
+      width: 160px; }
+    .is-landscape .ember-material-ui-datetime-picker .calendar-container {
+      float: left; }
+    .is-landscape .ember-material-ui-datetime-picker .window-actions {
+      position: absolute;
+      bottom: 0;
+      left: 30px; }
+      .is-landscape .ember-material-ui-datetime-picker .window-actions div {
+        display: block; } }
 
 .animated {
   -webkit-animation-duration: 1s;

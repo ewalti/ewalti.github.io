@@ -121,26 +121,40 @@ define('ember-material-ui-datetime-picker/components/worm-hole-modal', ['exports
 
   'use strict';
 
+  var set = Ember['default'].set;
+
   exports['default'] = Ember['default'].Component.extend({
 
     tagName: 'div',
     classNames: ['worm-hole-modal', 'animated', 'fadeIn'],
+    classNameBindings: ['isLandscape', 'isPortrait'],
 
-    didInsertElement: function didInsertElement() {} });
+    isLandscape: false,
+    isPortrait: Ember['default'].computed.not('isLandscape'),
 
-  // console.log('render modal weee');
+    didInsertElement: function didInsertElement() {
 
-  // var w = Ember.$(window);
-  // var d = Ember.$(document);
+      var w = Ember['default'].$(window);
 
-  // w.on('resize.derp', function(){
-  //   console.log(d.height(), d.width())
-  //   Ember.run.throttle(this, function(){
-  //     this.$().css({height: w.height(), width: w.width()});
-  //   }.bind(this), 250);
-  // }.bind(this));
+      console.log(w.width(), w.height());
+      if (w.width() > w.height()) {
+        set(this, 'isLandscape', true);
+      }
 
-  // this.$().css({height: w.height(), width: w.width()});
+      // console.log('render modal weee');
+
+      // var w = Ember.$(window);
+      // var d = Ember.$(document);
+
+      // w.on('resize.derp', function(){
+      //   console.log(d.height(), d.width())
+      //   Ember.run.throttle(this, function(){
+      //     this.$().css({height: w.height(), width: w.width()});
+      //   }.bind(this), 250);
+      // }.bind(this));
+
+      // this.$().css({height: w.height(), width: w.width()});
+    } });
 
   // click: function(event) {
   //   if(event.target === this.$()[0]) {
