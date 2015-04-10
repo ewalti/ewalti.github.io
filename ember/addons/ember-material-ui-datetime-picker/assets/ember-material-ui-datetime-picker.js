@@ -240,42 +240,6 @@ define('ember-material-ui-datetime-picker/initializers/app-version', ['exports',
   };
 
 });
-define('ember-material-ui-datetime-picker/initializers/ember-cli-fastclick', ['exports', 'ember'], function (exports, Ember) {
-
-  'use strict';
-
-  var EmberCliFastclickInitializer = {
-    name: 'fastclick',
-
-    initialize: function initialize() {
-      Ember['default'].run.schedule('afterRender', function () {
-        FastClick.attach(document.body);
-      });
-    }
-  };
-
-  exports['default'] = EmberCliFastclickInitializer;
-
-});
-define('ember-material-ui-datetime-picker/initializers/ember-mobiletouch', ['exports', 'ember-material-ui-datetime-picker/config/environment', 'ember-mobiletouch/default-config', 'ember-mobiletouch/overrides/view', 'ember-mobiletouch/overrides/link-view', 'ember-material-ui-datetime-picker/overrides/ember-mobiletouch', 'ember-mobiletouch/overrides/action-helper'], function (exports, config, defaultConfig, ModifiedView, ModifiedLinkView, ModifiedEventDispatcher, ModifiedActionHelper) {
-
-  'use strict';
-
-  exports['default'] = {
-
-    name: 'mobiletouch',
-
-    initialize: function initialize() {
-
-      var mergedConfig = Ember.merge({}, defaultConfig['default'], config['default']);
-
-      //add config settings to overrides
-      ModifiedView['default'].reopen({ __useGesturesHash: mergedConfig.useGesturesHash });
-      ModifiedLinkView['default'].reopen({ __defaultTapOnPress: mergedConfig.defaultTapOnPress });
-    }
-  };
-
-});
 define('ember-material-ui-datetime-picker/initializers/ember-moment', ['exports', 'ember-moment/helpers/moment', 'ember-moment/helpers/ago', 'ember-moment/helpers/duration', 'ember'], function (exports, moment, ago, duration, Ember) {
 
   'use strict';
@@ -404,47 +368,6 @@ define('ember-material-ui-datetime-picker/models/something', ['exports', 'ember-
     publishTo: DS['default'].attr()
 
   });
-
-});
-define('ember-material-ui-datetime-picker/overrides/ember-mobiletouch', ['exports', 'ember-material-ui-datetime-picker/config/environment', 'ember-mobiletouch/overrides/event-dispatcher', 'ember-material-ui-datetime-picker/recognizers'], function (exports, config, EventDispatcher, CustomRecognizers) {
-
-  'use strict';
-
-  exports['default'] = EventDispatcher['default'].reopen({
-    _mobileTouchCustomizations: config['default'].mobileTouch,
-    _customRecognizers: CustomRecognizers['default']
-  });
-
-});
-define('ember-material-ui-datetime-picker/recognizers', ['exports'], function (exports) {
-
-  'use strict';
-
-  exports['default'] = function () {}
-
-  /**
-   * Place your recognizer customizations here
-   */
-
-  //this.Manager is a reference to the hammer Manager instance
-  //this.Recognizers is a hash of available recognizers
-  //   e.g. this.Recognizers.Pan
-
-  //you can add a new recognizer, for instance doubleTap, like below
-  //the DOM event will be all lowercase (doubletap)
-  //the Ember event will be camelCase (doubleTap)
-  //the key in this.Recognizers will be SnakeCase (DoubleTap)
-  /*
-  this.recognize({
-     name : 'doubleTap', //always camelCase this
-     gesture : 'tap', //the base Hammer recognizer to use
-     tune : { //the settings to pass to the recognizer, event will be added automatically
-      taps : 2
-    },
-     'with' : ['tap'], //an array of recognizers to recognize with.
-     without : [] //an array of recognizers that must first fail
-  });
-  */
 
 });
 define('ember-material-ui-datetime-picker/router', ['exports', 'ember', 'ember-material-ui-datetime-picker/config/environment'], function (exports, Ember, config) {
